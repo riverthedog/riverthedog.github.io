@@ -1,19 +1,16 @@
 // Everything personal lives here. Edit, commit, push, and GitHub Pages redeploys.
-// Phone numbers: +1 then the 10-digit number, e.g. '+1XXXXXXXXXX'.
-// (A production build refuses to run until the owner's number is filled in.)
+// Phone numbers can be written any way, like '(760) 123-4567'; the page formats them.
 export const CONFIG = {
   dog: {
     name: 'River',
-    microchip: '', // TODO: once known; the page then tells finders a vet can scan it
+    microchip: '', // optional; nothing shows on the page while it's empty
   },
 
-  // TODO: your sister's first name, number, and how the number should look on the page
-  owner: { name: 'my person', phone: '+17605000166', phoneDisplay: '(760) 500-0166' },
+  owner: { name: 'my person', phone: '(760) 500-0166' },
 
   // Shown under "If my person doesn't answer". Add people as you go.
   contacts: [
-    // TODO: your name and number
-    { name: 'Backup contact', note: 'Lives in Escondido', phone: '+17605004010', canText: true },
+    { name: 'Backup contact', note: 'Lives in Escondido', phone: '(760) 500-4010', canText: true },
   ],
 
   // Shown under "Good to know", in River's voice.

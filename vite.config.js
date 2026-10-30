@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import { CONFIG } from './src/config.js';
+import { isValidPhone } from './src/lib/phone.js';
 
 // `npm run build:preview` makes one self-contained HTML file in preview/: phone layout only,
 // with the location flow simulated. Handy for showing changes before they go live.
@@ -15,10 +16,9 @@ const phoneOnly = {
 
 // The engraved tag points at this site, so never deploy it without real phone numbers.
 function requireRealNumbers() {
-  const valid = (number) => /^\+\d{10,15}$/.test(number);
   const extras = CONFIG.contacts.map((contact) => contact.phone).filter(Boolean);
-  if (!valid(CONFIG.owner.phone) || !CONFIG.owner.phoneDisplay || !extras.every(valid)) {
-    throw new Error('Add real phone numbers to src/config.js first (format: +1 then the 10-digit number).');
+  if (!isValidPhone(CONFIG.owner.phone) || !extras.every(isValidPhone)) {
+    throw new Error('src/config.js needs a real phone number for the owner (and any contacts) before building.');
   }
 }
 

@@ -1,6 +1,7 @@
 <script>
   import { CONFIG } from '../config.js';
   import { hello, smsHref, telHref } from '../lib/contact.js';
+  import { readable } from '../lib/phone.js';
   import { createSpotShare } from '../lib/share.svelte.js';
   import Icon from './Icon.svelte';
   import ChatSheet from './ChatSheet.svelte';
@@ -25,7 +26,7 @@
     <span class="btn__badge"><Icon name="phone" /></span>
     <span class="btn__text">
       <span class="btn__label">Call {owner.name}</span>
-      {#if showNumber && owner.phoneDisplay}<span class="btn__meta">{owner.phoneDisplay}</span>{/if}
+      {#if showNumber}<span class="btn__meta">{readable(owner.phone)}</span>{/if}
     </span>
   </a>
 
