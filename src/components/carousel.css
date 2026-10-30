@@ -1,0 +1,42 @@
+.carousel { position: relative; }
+.carousel__track {
+  position: relative;
+  display: flex;
+  gap: var(--car-gap, 12px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__slide {
+  flex: 0 0 var(--car-slide, 84%);
+  min-width: 0;
+  aspect-ratio: var(--car-aspect, 4 / 5);
+  object-fit: cover;
+  border-radius: var(--car-radius, 24px);
+  background: var(--car-placeholder, rgba(127, 127, 127, 0.15));
+  scroll-snap-align: var(--car-snap, start);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.carousel__dots { display: flex; justify-content: center; margin-top: 8px; }
+.carousel__dot {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.carousel__dot::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: var(--car-dot, rgba(127, 127, 127, 0.45));
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+.carousel__dot.is-active::after { width: 18px; background: var(--car-dot-active, currentColor); }
