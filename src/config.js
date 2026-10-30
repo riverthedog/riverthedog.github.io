@@ -8,12 +8,12 @@ export const CONFIG = {
   },
 
   // TODO: your sister's first name, number, and how the number should look on the page
-  owner: { name: 'my person', phone: '', phoneDisplay: '' },
+  owner: { name: 'my person', phone: '+17605000166', phoneDisplay: '(760) 500-0166' },
 
   // Shown under "If my person doesn't answer". Add people as you go.
   contacts: [
     // TODO: your name and number
-    { name: 'Backup contact', note: 'Lives in Escondido', phone: '', canText: true },
+    { name: 'Backup contact', note: 'Lives in Escondido', phone: '+17605004010', canText: true },
   ],
 
   // Shown under "Good to know", in River's voice.
